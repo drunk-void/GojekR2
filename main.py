@@ -2,22 +2,25 @@ from manager import *
 
 bank = Manager()
 account = bank.add_account()
+
 print("Welcome to Bank")
-print("How can we help you?")
-print("1. Deposit Money")
-print("2. Withdraw Money")
-print("3. Check Balance")
-print("4. Exit")
+option = 0
 
-option = int(input("Enter your choice: "))
+while option != 4:
+    if option == 1:
+        amount = input("Enter amount to deposit: ")
+        account.deposit(amount)
+    elif option == 2:
+        amount = input("Enter amount to withdraw: ")
+        account.withdraw(amount)
+    elif option == 3:
+        print("Your balance is: ", account.check_balance())
+    elif option == 4:
+        print("Thank you for using our bank")
+    print("How can we help you?")
+    print("1. Deposit Money")
+    print("2. Withdraw Money")
+    print("3. Check Balance")
+    print("4. Exit")
 
-if option == 1:
-    amount = input("Enter amount to deposit: ")
-    account.deposit(amount)
-elif option == 2:
-    amount = input("Enter amount to withdraw: ")
-    account.withdraw(amount)
-elif option == 3:
-    print("Your balance is: ", account.check_balance())
-elif option == 4:
-    print("Thank you for using our bank")
+    option = int(input("Enter your choice: "))
