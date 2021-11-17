@@ -12,10 +12,10 @@ print("4. Exit")
 option = int(input("Enter your choice: "))
 
 if option == 1:
-    amount = int(input("Enter amount to deposit: "))
+    amount = input("Enter amount to deposit: ")
     account.deposit(amount)
 elif option == 2:
-    amount = int(input("Enter amount to withdraw: "))
+    amount = input("Enter amount to withdraw: ")
     account.withdraw(amount)
 elif option == 3:
     print("Your balance is: ", account.check_balance())
