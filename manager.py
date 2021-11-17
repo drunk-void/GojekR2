@@ -1,5 +1,6 @@
 from util import *
 from bankAccount import *
+from random import randint
 
 
 class Manager():
@@ -8,5 +9,6 @@ class Manager():
         self.transactions = []
 
     def add_account(self):
-        ID = random.randint(1, 10000)
-        self.accounts[account.ID] = account
+        ID = randint(1, 10000)
+        self.accounts[ID] = bankAccount(ID)
+        return self.accounts[ID]

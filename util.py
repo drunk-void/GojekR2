@@ -6,15 +6,15 @@ class Transaction():
 
 
 class Amount():
-    def __init__(self, amount: str):
+    def __init__(self, amount: str = ""):
         self.amount = amount.split()
         self.dollar = int(0)
         self.cent = int(0)
         for i in range(len(self.amount)):
             if amount[i].endswith('D'):
-                self.dollar = int(self.amount[i])
+                self.dollar = int(self.amount[i][:-1])
             else:
-                self.cent = int(self.amount[i])
+                self.cent = int(self.amount[i][:-1])
 
     def __str__(self):
         return str(self.dollar) + 'D ' + str(self.cent) + 'C'
@@ -35,3 +35,25 @@ class Amount():
             self.dollar -= abs(self.cent) // 100
             self.cent = self.cent + temp*100
         return self
+
+    def __gt__(self, other):
+        if self.dollar > other.dollar:
+            return True
+        elif self.dollar == other.dollar:
+            if self.cent > other.cent:
+                return True
+            else:
+                return False
+        else:
+            return False
+
+    def __lt__(self, other):
+        if self.dollar < other.dollar:
+            return True
+        elif self.dollar == other.dollar:
+            if self.cent < other.cent:
+                return True
+            else:
+                return False
+        else:
+            return False
